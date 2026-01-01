@@ -439,28 +439,28 @@ function App() {
                       </span>
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-4">
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
-                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Players</div>
-                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
+                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase mb-1.5">Players</div>
+                      <div className="text-xl sm:text-xl font-pixel text-hoopland-text">
                         {allPlayers.length}
                       </div>
                     </div>
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
-                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Teams</div>
-                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
+                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase mb-1.5">Teams</div>
+                      <div className="text-xl sm:text-xl font-pixel text-hoopland-text">
                         {saveData.teams?.length || 0}
                       </div>
                     </div>
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
-                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Draft Class</div>
-                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
+                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase mb-1.5">Draft Class</div>
+                      <div className="text-xl sm:text-xl font-pixel text-hoopland-text">
                         {saveData.draftClass?.length || 0}
                       </div>
                     </div>
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
-                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Free Agents</div>
-                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
+                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase mb-1.5">Free Agents</div>
+                      <div className="text-xl sm:text-xl font-pixel text-hoopland-text">
                         {saveData.freeAgents?.length || 0}
                       </div>
                     </div>
@@ -680,18 +680,18 @@ function App() {
                   />
                 )}
                 <div className="card">
-                  <h2 className="text-base sm:text-sm font-pixel mb-5 sm:mb-4 text-hoopland-text">SELECT TEAM</h2>
-                  <div className="mb-5 sm:mb-4">
+                  <h2 className="text-sm font-pixel mb-4 text-hoopland-text">SELECT TEAM</h2>
+                  <div className="mb-4">
                     <SearchBar
                       value={teamSearchQuery}
                       onChange={setTeamSearchQuery}
                       placeholder="SEARCH TEAMS..."
                     />
                   </div>
-                  <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark mb-4 sm:mb-3">
+                  <div className="text-xs font-pixel-alt text-hoopland-dark mb-3">
                     Showing {filteredTeams.length} of {saveData.teams?.length || 0} teams
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-3 max-h-96 overflow-y-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-96 overflow-y-auto">
                     {filteredTeams.map((team: Team) => {
                       const logoURL = (team as any).logoURL;
                       return (

@@ -43,8 +43,8 @@
   
   @media (max-width: 640px) {
     .card {
-      @apply p-5; /* More padding for breathing room */
-      margin-bottom: 1.5rem; /* More space between cards */
+      @apply p-4; /* Balanced padding */
+      margin-bottom: 1.25rem; /* Space between cards */
     }
   }
   
@@ -63,7 +63,7 @@
   
   @media (max-width: 640px) {
     .btn-primary {
-      @apply py-4 px-4 text-sm w-full; /* Full width on mobile */
+      @apply py-3 px-4 text-xs w-full; /* Full width on mobile, slightly smaller */
     }
   }
   
@@ -89,7 +89,7 @@
   
   @media (max-width: 640px) {
     .btn-secondary {
-      @apply py-4 px-4 text-sm w-full; /* Full width on mobile */
+      @apply py-3 px-4 text-xs w-full; /* Full width on mobile, slightly smaller */
     }
   }
   
@@ -113,7 +113,7 @@
   
   @media (max-width: 640px) {
     .input-field {
-      @apply py-4 text-base; /* Larger text and padding on mobile */
+      @apply py-3 text-sm; /* Slightly smaller but still readable */
       font-size: 16px; /* Prevent zoom on iOS */
     }
   }

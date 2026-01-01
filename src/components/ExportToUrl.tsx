@@ -55,32 +55,32 @@ export default function ExportToUrl({ onDownload, isMobile }: ExportToUrlProps) 
 
   return (
     <div className="card border-hoopland-border">
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-4">
-        <h2 className="text-base sm:text-sm font-pixel text-hoopland-text">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-4 mb-4">
+        <h2 className="text-sm font-pixel text-hoopland-text">
           EXPORT FOR MOBILE IMPORT
         </h2>
         <button
           onClick={() => setShowInstructions(!showInstructions)}
-          className="btn-secondary text-sm sm:text-xs py-3 sm:py-2 w-full sm:w-auto"
+          className="btn-secondary text-xs py-2 w-full sm:w-auto"
         >
           {showInstructions ? 'HIDE' : 'SHOW'} INSTRUCTIONS
         </button>
       </div>
 
       {showInstructions && (
-        <div className="space-y-5 sm:space-y-4 mb-5 sm:mb-4">
-          <div className="bg-hoopland-dark p-5 sm:p-4 border-4 border-hoopland-border">
-            <h3 className="text-sm sm:text-xs font-pixel text-hoopland-text mb-4 sm:mb-3">
+        <div className="space-y-3 mb-4">
+          <div className="bg-hoopland-dark p-4 border-4 border-hoopland-border">
+            <h3 className="text-xs font-pixel text-hoopland-text mb-3">
               STEP 1: DOWNLOAD YOUR EDITED SAVE
             </h3>
             <button
               onClick={onDownload}
-              className="btn-primary inline-flex items-center justify-center gap-2 text-sm sm:text-xs mb-4 sm:mb-3 w-full sm:w-auto py-4 sm:py-3"
+              className="btn-primary inline-flex items-center justify-center gap-2 text-xs mb-3 w-full sm:w-auto"
             >
-              <Download className="w-5 h-5 sm:w-4 sm:h-4" />
+              <Download className="w-4 h-4" />
               DOWNLOAD SAVE FILE
             </button>
-            <p className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark">
+            <p className="text-xs font-pixel-alt text-hoopland-dark">
               This will download your edited save file to your device.
             </p>
           </div>
