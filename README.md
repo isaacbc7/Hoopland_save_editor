@@ -11,6 +11,10 @@ A comprehensive, user-friendly JSON save editor specifically designed for Hoopla
 - 🎨 **Beautiful UI/UX**: Modern, clean interface that makes editing JSON saves simple and clear
 - 💾 **Save & Load**: Load Hoopland save files (even without .json extension) and export your changes
 
+## 🌐 Live Demo
+
+Visit the live editor at: **https://isaacbc7.github.io/Hoopland_save_editor/**
+
 ## Getting Started
 
 ### Prerequisites
@@ -28,6 +32,23 @@ npm install
 ```bash
 npm run dev
 ```
+
+The app will be available at `http://localhost:5173`
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+### Deployment
+
+This project is automatically deployed to GitHub Pages via GitHub Actions when you push to the `main` branch.
+
+To enable GitHub Pages:
+1. Go to your repository Settings → Pages
+2. Under "Source", select "GitHub Actions"
+3. The site will be available at `https://YOUR_USERNAME.github.io/Hoopland_save_editor/`
 
 The application will be available at `http://localhost:5173`
 
