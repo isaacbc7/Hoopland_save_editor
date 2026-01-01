@@ -1,0 +1,146 @@
+{
+  "BAL": {
+    "id": "BAL",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "BUL": {
+    "id": "BUL",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "CHE": {
+    "id": "CHE",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "CLA": {
+    "id": "CLA",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "CLE": {
+    "id": "CLE",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "CLU": {
+    "id": "CLU",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "CRA": {
+    "id": "CRA",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "DIM": {
+    "id": "DIM",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "DUN": {
+    "id": "DUN",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "FOO": {
+    "id": "FOO",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "HIG": {
+    "id": "HIG",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "HOT": {
+    "id": "HOT",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "LIM": {
+    "id": "LIM",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "LOC": {
+    "id": "LOC",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "MAG": {
+    "id": "MAG",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "SNA": {
+    "id": "SNA",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "SOF": {
+    "id": "SOF",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "SPA": {
+    "id": "SPA",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "SPO": {
+    "id": "SPO",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "STE": {
+    "id": "STE",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "TEA": {
+    "id": "TEA",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "TWO": {
+    "id": "TWO",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "UNF": {
+    "id": "UNF",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  },
+  "VOL": {
+    "id": "VOL",
+    "xp": 0,
+    "level": 1,
+    "equipped": true
+  }
+}

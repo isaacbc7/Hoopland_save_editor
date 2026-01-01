@@ -1,0 +1,12 @@
+# API Keys Configuration
+# Copy this file to .api_keys and add your actual keys
+# DO NOT commit .api_keys to git!
+
+# API-Football (Free - 100 requests/month)
+# Get your key at: https://dashboard.api-football.com/basketball/ids
+API_FOOTBALL_KEY=your_api_key_here
+
+# SportsDataIO (Paid - $10-50/month)
+# Get your key at: https://sportsdata.io/
+SPORTSDATA_API_KEY=your_api_key_here
+
