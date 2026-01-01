@@ -43,7 +43,13 @@ function GameModeEditor({
     return 'other';
   };
 
-  const groupedFields = {
+  const groupedFields: {
+    season: Array<[string, any]>;
+    draft: Array<[string, any]>;
+    settings: Array<[string, any]>;
+    other: Array<[string, any]>;
+    [key: string]: Array<[string, any]>;
+  } = {
     season: [] as Array<[string, any]>,
     draft: [] as Array<[string, any]>,
     settings: [] as Array<[string, any]>,

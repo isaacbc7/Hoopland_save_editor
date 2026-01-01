@@ -1,7 +1,7 @@
-import { Player, Team, SkillCategory } from '../types/hoopland';
+import { Player, Team } from '../types/hoopland';
 import { FilterState } from '../components/search/FilterPanel';
+import { getPositionAbbr, getPositionName } from './positions';
 import { getSkillCategory } from './skills';
-import { matchesPosition, getPositionAbbr } from './positions';
 
 /**
  * Search players by query string
@@ -143,7 +143,7 @@ export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null;
+  let timeout: ReturnType<typeof setTimeout> | null = null;
   return (...args: Parameters<T>) => {
     if (timeout) clearTimeout(timeout);
     timeout = setTimeout(() => func(...args), wait);

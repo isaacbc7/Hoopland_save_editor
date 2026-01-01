@@ -114,10 +114,10 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
             <div>
               <label className="label">Position</label>
               <select
-                value={player.pos !== undefined ? player.pos.toString() : ''}
+                value={player.pos !== undefined ? String(player.pos) : ''}
                 onChange={(e) => {
                   const posValue = e.target.value ? parseInt(e.target.value) : undefined;
-                  updatePlayer({ pos: posValue });
+                  updatePlayer({ pos: posValue as any });
                 }}
                 className="input-field"
               >

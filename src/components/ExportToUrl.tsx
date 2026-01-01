@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Copy, Check, ExternalLink, Download, Upload } from 'lucide-react';
+import { Link, Copy, Check, ExternalLink, Download } from 'lucide-react';
 
 interface ExportToUrlProps {
   filename: string;
@@ -7,7 +7,7 @@ interface ExportToUrlProps {
   isMobile: boolean;
 }
 
-export default function ExportToUrl({ filename, onDownload, isMobile }: ExportToUrlProps) {
+export default function ExportToUrl({ onDownload, isMobile }: ExportToUrlProps) {
   const [copied, setCopied] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [urlInput, setUrlInput] = useState('');

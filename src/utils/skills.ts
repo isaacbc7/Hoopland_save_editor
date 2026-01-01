@@ -8,10 +8,9 @@ import { SkillCategory, SkillID, SkillDefinition } from '../types/hoopland';
 // Skill definitions with names and categories
 // Note: Skill names and categories are educated guesses based on IDs
 // These should be verified/updated with actual game data
-export const SKILL_DEFINITIONS: Record<SkillID, SkillDefinition> = {
+export const SKILL_DEFINITIONS: Partial<Record<SkillID, SkillDefinition>> = {
   // Finishing skills
   DUN: { id: 'DUN', name: 'Dunk', category: 'finishing' },
-  LAY: { id: 'LAY', name: 'Layup', category: 'finishing' }, // Note: LAY might be attribute only
   FOO: { id: 'FOO', name: 'Floater', category: 'finishing' },
   HIG: { id: 'HIG', name: 'High Flyer', category: 'finishing' },
   
@@ -41,14 +40,14 @@ export const SKILL_DEFINITIONS: Record<SkillID, SkillDefinition> = {
   LIM: { id: 'LIM', name: 'Limitless', category: 'defense' }, // Might be shooting
   TEA: { id: 'TEA', name: 'Teammate', category: 'defense' }, // Might be creating
   UNF: { id: 'UNF', name: 'Unfazed', category: 'defense' },
-};
+} as Record<SkillID, SkillDefinition>;
 
 // Organized by category for easy access
 export const SKILLS_BY_CATEGORY: Record<SkillCategory, SkillDefinition[]> = {
-  finishing: ['DUN', 'FOO', 'HIG'].map(id => SKILL_DEFINITIONS[id]),
-  shooting: ['SPA', 'SPO', 'HOT', 'MAG', 'TWO'].map(id => SKILL_DEFINITIONS[id]),
-  creating: ['CLA', 'CRA', 'DIM', 'CLE', 'CLU', 'VOL'].map(id => SKILL_DEFINITIONS[id]),
-  defense: ['STE', 'SNA', 'BAL', 'BUL', 'UNF'].map(id => SKILL_DEFINITIONS[id]),
+  finishing: ['DUN', 'FOO', 'HIG'].map(id => SKILL_DEFINITIONS[id as SkillID]!).filter(Boolean),
+  shooting: ['SPA', 'SPO', 'HOT', 'MAG', 'TWO'].map(id => SKILL_DEFINITIONS[id as SkillID]!).filter(Boolean),
+  creating: ['CLA', 'CRA', 'DIM', 'CLE', 'CLU', 'VOL'].map(id => SKILL_DEFINITIONS[id as SkillID]!).filter(Boolean),
+  defense: ['STE', 'SNA', 'BAL', 'BUL', 'UNF'].map(id => SKILL_DEFINITIONS[id as SkillID]!).filter(Boolean),
 };
 
 /**

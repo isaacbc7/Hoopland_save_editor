@@ -4,7 +4,7 @@
  * Supports both Steam and Mobile save formats
  */
 
-import { HooplandSave, MobileHooplandSave, NormalizedSave } from '../types/hoopland';
+import { NormalizedSave } from '../types/hoopland';
 
 export async function loadSaveFile(file: File): Promise<any> {
   return new Promise((resolve, reject) => {

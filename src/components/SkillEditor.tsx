@@ -1,7 +1,12 @@
 import { memo } from 'react';
 import { PlayerSkill, SkillCategory, SkillID } from '../types/hoopland';
-import { getSkillsForCategory, getSkillName, SkillDefinition } from '../utils/skills';
 import { X } from 'lucide-react';
+
+export interface SkillDefinition {
+  id: SkillID;
+  name: string;
+  category: SkillCategory;
+}
 
 interface SkillEditorProps {
   category: SkillCategory;
