@@ -255,19 +255,19 @@ function App() {
       <div className="min-h-screen bg-hoopland-dark">
       {/* Header */}
       <header className="bg-hoopland-frame border-b-4 border-hoopland-border sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-3 sm:py-4">
-          <div className="flex items-center justify-between flex-wrap gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-8 py-4 sm:py-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden btn-secondary p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="lg:hidden btn-secondary p-3 min-w-[48px] min-h-[48px] flex items-center justify-center flex-shrink-0"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
               <div className="min-w-0 flex-1">
-                <h1 className="text-base sm:text-xl font-pixel text-hoopland-text truncate">
+                <h1 className="text-lg sm:text-xl font-pixel text-hoopland-text truncate">
                   HOOPLAND SAVE EDITOR
                 </h1>
                 <p className="text-xs font-pixel-alt text-hoopland-dark mt-1 truncate">
@@ -275,22 +275,22 @@ function App() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={handleUploadAnother}
-                className="btn-secondary inline-flex items-center justify-center gap-2 flex-1 sm:flex-initial text-xs sm:text-xs"
+                className="btn-secondary inline-flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-xs py-4 sm:py-3"
               >
-                <Upload className="w-4 h-4" />
+                <Upload className="w-5 h-5 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">UPLOAD ANOTHER SAVE</span>
-                <span className="sm:hidden">UPLOAD</span>
+                <span className="sm:hidden">UPLOAD ANOTHER SAVE</span>
               </button>
               <button
                 onClick={handleSave}
-                className="btn-primary inline-flex items-center justify-center gap-2 flex-1 sm:flex-initial text-xs sm:text-xs"
+                className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-xs py-4 sm:py-3"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-5 h-5 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">DOWNLOAD SAVE</span>
-                <span className="sm:hidden">DOWNLOAD</span>
+                <span className="sm:hidden">DOWNLOAD SAVE</span>
               </button>
             </div>
             <input
@@ -439,28 +439,28 @@ function App() {
                       </span>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
-                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase">Players</div>
-                      <div className="text-xl font-pixel text-hoopland-text mt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-4">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
+                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Players</div>
+                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
                         {allPlayers.length}
                       </div>
                     </div>
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
-                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase">Teams</div>
-                      <div className="text-xl font-pixel text-hoopland-text mt-2">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
+                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Teams</div>
+                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
                         {saveData.teams?.length || 0}
                       </div>
                     </div>
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
-                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase">Draft Class</div>
-                      <div className="text-xl font-pixel text-hoopland-text mt-2">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
+                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Draft Class</div>
+                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
                         {saveData.draftClass?.length || 0}
                       </div>
                     </div>
-                    <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
-                      <div className="text-xs font-pixel-alt text-hoopland-dark uppercase">Free Agents</div>
-                      <div className="text-xl font-pixel text-hoopland-text mt-2">
+                    <div className="bg-hoopland-border border-4 border-hoopland-text p-5 sm:p-4">
+                      <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark uppercase mb-2">Free Agents</div>
+                      <div className="text-2xl sm:text-xl font-pixel text-hoopland-text">
                         {saveData.freeAgents?.length || 0}
                       </div>
                     </div>
@@ -680,18 +680,18 @@ function App() {
                   />
                 )}
                 <div className="card">
-                  <h2 className="text-sm font-pixel mb-4 text-hoopland-text">SELECT TEAM</h2>
-                  <div className="mb-4">
+                  <h2 className="text-base sm:text-sm font-pixel mb-5 sm:mb-4 text-hoopland-text">SELECT TEAM</h2>
+                  <div className="mb-5 sm:mb-4">
                     <SearchBar
                       value={teamSearchQuery}
                       onChange={setTeamSearchQuery}
                       placeholder="SEARCH TEAMS..."
                     />
                   </div>
-                  <div className="text-xs font-pixel-alt text-hoopland-dark mb-3">
+                  <div className="text-sm sm:text-xs font-pixel-alt text-hoopland-dark mb-4 sm:mb-3">
                     Showing {filteredTeams.length} of {saveData.teams?.length || 0} teams
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-96 overflow-y-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-3 max-h-96 overflow-y-auto">
                     {filteredTeams.map((team: Team) => {
                       const logoURL = (team as any).logoURL;
                       return (

@@ -43,7 +43,8 @@
   
   @media (max-width: 640px) {
     .card {
-      @apply p-4; /* Less padding on mobile */
+      @apply p-5; /* More padding for breathing room */
+      margin-bottom: 1.5rem; /* More space between cards */
     }
   }
   
