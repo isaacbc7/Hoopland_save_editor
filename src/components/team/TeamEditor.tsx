@@ -98,7 +98,7 @@ function TeamEditor({ team, onChange, onPlayerClick }: TeamEditorProps) {
           )}
         </button>
         {expandedSections.has('basic') && (
-          <div className="pl-4 grid grid-cols-2 gap-3">
+          <div className="pl-0 sm:pl-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="label">City</label>
               <input

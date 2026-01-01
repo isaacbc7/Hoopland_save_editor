@@ -20,9 +20,10 @@ export default function SearchBar({ value, onChange, placeholder = "SEARCH..." }
       {value && (
         <button
           onClick={() => onChange('')}
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 hover:bg-hoopland-border rounded"
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 hover:bg-hoopland-border rounded min-w-[44px] min-h-[44px] flex items-center justify-center"
+          aria-label="Clear search"
         >
-          <X className="w-4 h-4 text-hoopland-dark" />
+          <X className="w-5 h-5 sm:w-4 sm:h-4 text-hoopland-dark" />
         </button>
       )}
     </div>

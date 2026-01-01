@@ -14,6 +14,15 @@
     @apply bg-hoopland-dark text-hoopland-text font-pixel-alt;
     font-size: 16px;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Prevent text size adjustment on iOS */
+  @media (max-width: 640px) {
+    body {
+      -webkit-text-size-adjust: 100%;
+    }
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -32,16 +41,29 @@
       inset 0 0 0 2px rgba(255, 255, 255, 0.1);
   }
   
+  @media (max-width: 640px) {
+    .card {
+      @apply p-4; /* Less padding on mobile */
+    }
+  }
+  
   /* Primary button - pixelated style */
   .btn-primary {
     @apply bg-hoopland-border hover:bg-hoopland-dark text-hoopland-text font-pixel text-xs;
     @apply py-3 px-6 border-4 border-hoopland-text;
     @apply transition-all duration-100;
+    @apply min-h-[44px] min-w-[44px]; /* Minimum touch target size */
     text-transform: uppercase;
     letter-spacing: 0.1em;
     box-shadow: 
       0 4px 0 0 #000,
       inset 0 2px 0 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  @media (max-width: 640px) {
+    .btn-primary {
+      @apply py-4 px-4 text-sm w-full; /* Full width on mobile */
+    }
   }
   
   .btn-primary:active {
@@ -56,11 +78,18 @@
     @apply bg-hoopland-frame hover:bg-hoopland-border text-hoopland-text font-pixel text-xs;
     @apply py-3 px-6 border-4 border-hoopland-border;
     @apply transition-all duration-100;
+    @apply min-h-[44px] min-w-[44px]; /* Minimum touch target size */
     text-transform: uppercase;
     letter-spacing: 0.1em;
     box-shadow: 
       0 4px 0 0 #000,
       inset 0 2px 0 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 640px) {
+    .btn-secondary {
+      @apply py-4 px-4 text-sm w-full; /* Full width on mobile */
+    }
   }
   
   .btn-secondary:active {
@@ -74,10 +103,18 @@
   .input-field {
     @apply w-full px-4 py-3 bg-white text-gray-900 font-pixel-alt;
     @apply border-4 border-hoopland-border;
+    @apply min-h-[44px]; /* Minimum touch target */
     font-size: 14px;
     box-shadow: 
       inset 0 2px 4px rgba(0, 0, 0, 0.1),
       0 0 0 1px #000;
+  }
+  
+  @media (max-width: 640px) {
+    .input-field {
+      @apply py-4 text-base; /* Larger text and padding on mobile */
+      font-size: 16px; /* Prevent zoom on iOS */
+    }
   }
   
   .input-field:focus {
@@ -142,5 +179,56 @@
   .category-physicals {
     @apply border-purple-500;
     background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0.05) 100%);
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Larger touch targets */
+  button, a, select, input[type="checkbox"], input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing */
+  .space-y-2 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  .space-y-3 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 1.25rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better text wrapping */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Improve table/list scrolling */
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Larger text on mobile for readability */
+  .text-xs {
+    font-size: 0.875rem;
+  }
+  
+  .text-sm {
+    font-size: 1rem;
   }
 }

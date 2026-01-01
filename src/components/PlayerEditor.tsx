@@ -174,7 +174,7 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
           )}
         </button>
         {expandedSections.has('stats') && (
-          <div className="pl-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="pl-0 sm:pl-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
             {player.stats &&
               Object.entries(player.stats).map(([key, value]) => (
                 <div key={key}>
@@ -218,7 +218,7 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
             {/* Attribute categories */}
             <div>
               <h4 className="text-xs font-pixel text-hoopland-text mb-2 uppercase">Finishing</h4>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {['LAY', 'DNK', 'INS'].map((attr) => {
                   const value = player.attributes?.[attr] || [0, 0];
                   return (
@@ -269,7 +269,7 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
             
             <div>
               <h4 className="text-xs font-pixel text-hoopland-text mb-2 uppercase">Shooting</h4>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {['MID', 'TPT', 'FTS'].map((attr) => {
                   const value = player.attributes?.[attr] || [0, 0];
                   return (
@@ -320,7 +320,7 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
             
             <div>
               <h4 className="text-xs font-pixel text-hoopland-text mb-2 uppercase">Creating</h4>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {['DRB', 'PAS', 'ORE', 'DRE'].map((attr) => {
                   const value = player.attributes?.[attr] || [0, 0];
                   return (
@@ -371,7 +371,7 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
             
             <div>
               <h4 className="text-xs font-pixel text-hoopland-text mb-2 uppercase">Defense</h4>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {['STL', 'BLK'].map((attr) => {
                   const value = player.attributes?.[attr] || [0, 0];
                   return (
@@ -422,7 +422,7 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
             
             <div>
               <h4 className="text-xs font-pixel text-hoopland-text mb-2 uppercase">Physicals</h4>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {['SPD', 'STR', 'STM'].map((attr) => {
                   const value = player.attributes?.[attr] || [0, 0];
                   return (
@@ -477,7 +477,7 @@ function PlayerEditor({ player, onChange }: PlayerEditorProps) {
           )}
         </button>
         {expandedSections.has('skills') && (
-          <div className="pl-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="pl-0 sm:pl-4 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {skillCategories.map((category) => (
               <SkillEditor
                 key={category}

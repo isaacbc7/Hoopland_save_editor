@@ -22,7 +22,7 @@ export default function LeagueSwitcher({
   return (
     <div className="card mb-6">
       <h3 className="text-sm font-pixel mb-4 text-hoopland-text">SELECT LEAGUE</h3>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {leagues.map((league) => (
           <button
             key={league.index}

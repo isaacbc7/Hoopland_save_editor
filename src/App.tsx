@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
-import { Download, FileText, Users, Trophy, Target, Code } from 'lucide-react';
+import { Download, FileText, Users, Trophy, Target, Code, Menu, X } from 'lucide-react';
 import FileLoader from './components/FileLoader';
 import PlayerEditor from './components/PlayerEditor';
 import GameModeEditor from './components/GameModeEditor';
@@ -29,6 +29,7 @@ function App() {
   const [teamSearchQuery, setTeamSearchQuery] = useState('');
   const [selectedTeamId, setSelectedTeamId] = useState<number | null>(null);
   const [currentLeagueIndex, setCurrentLeagueIndex] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const processSaveData = useCallback((rawData: any, sourceName: string = 'save') => {
     const normalized = normalizeSaveFile(rawData);
@@ -253,31 +254,43 @@ function App() {
     <ErrorBoundary>
       <div className="min-h-screen bg-hoopland-dark">
       {/* Header */}
-      <header className="bg-hoopland-frame border-b-4 border-hoopland-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-xl font-pixel text-hoopland-text">
-                HOOPLAND SAVE EDITOR
-              </h1>
-              <p className="text-xs font-pixel-alt text-hoopland-dark mt-1">
-                {filename} {saveData?.isMobile ? '(Mobile)' : '(Steam)'}
-              </p>
+      <header className="bg-hoopland-frame border-b-4 border-hoopland-border sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-3 sm:py-4">
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <div className="flex items-center gap-3 flex-1 min-w-0">
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden btn-secondary p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+              <div className="min-w-0 flex-1">
+                <h1 className="text-base sm:text-xl font-pixel text-hoopland-text truncate">
+                  HOOPLAND SAVE EDITOR
+                </h1>
+                <p className="text-xs font-pixel-alt text-hoopland-dark mt-1 truncate">
+                  {filename} {saveData?.isMobile ? '(Mobile)' : '(Steam)'}
+                </p>
+              </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
               <button
                 onClick={handleUploadAnother}
-                className="btn-secondary inline-flex items-center gap-2"
+                className="btn-secondary inline-flex items-center justify-center gap-2 flex-1 sm:flex-initial text-xs sm:text-xs"
               >
                 <Upload className="w-4 h-4" />
-                UPLOAD ANOTHER SAVE
+                <span className="hidden sm:inline">UPLOAD ANOTHER SAVE</span>
+                <span className="sm:hidden">UPLOAD</span>
               </button>
               <button
                 onClick={handleSave}
-                className="btn-primary inline-flex items-center gap-2"
+                className="btn-primary inline-flex items-center justify-center gap-2 flex-1 sm:flex-initial text-xs sm:text-xs"
               >
                 <Download className="w-4 h-4" />
-                DOWNLOAD SAVE
+                <span className="hidden sm:inline">DOWNLOAD SAVE</span>
+                <span className="sm:hidden">DOWNLOAD</span>
               </button>
             </div>
             <input
@@ -309,76 +322,107 @@ function App() {
           </div>
         )}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex gap-8">
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+      
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-8">
+        <div className="flex gap-4 lg:gap-8">
           {/* Sidebar Navigation */}
-          <aside className="w-64 flex-shrink-0">
+          <aside className={`
+            fixed lg:static inset-y-0 left-0 z-50
+            w-64 bg-hoopland-frame border-r-4 lg:border-r-0 border-hoopland-border
+            transform transition-transform duration-300 ease-in-out
+            ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+            pt-16 lg:pt-0 p-4 lg:p-0
+            overflow-y-auto
+            flex-shrink-0
+          `}>
             <nav className="space-y-2">
               <button
-                onClick={() => setCurrentView('overview')}
-                className={`w-full flex items-center gap-3 px-4 py-3 border-4 font-pixel text-xs transition-all ${
+                onClick={() => {
+                  setCurrentView('overview');
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-4 sm:py-3 border-4 font-pixel text-xs sm:text-xs transition-all min-h-[44px] ${
                   currentView === 'overview'
                     ? 'bg-hoopland-border border-hoopland-text text-hoopland-text'
                     : 'bg-hoopland-frame border-hoopland-border text-hoopland-text hover:border-hoopland-text'
                 }`}
                 style={{ boxShadow: '0 4px 0 0 #000' }}
               >
-                <FileText className="w-4 h-4" />
-                OVERVIEW
+                <FileText className="w-5 h-5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span>OVERVIEW</span>
               </button>
               <button
-                onClick={() => setCurrentView('player')}
-                className={`w-full flex items-center gap-3 px-4 py-3 border-4 font-pixel text-xs transition-all ${
+                onClick={() => {
+                  setCurrentView('player');
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-4 sm:py-3 border-4 font-pixel text-xs sm:text-xs transition-all min-h-[44px] ${
                   currentView === 'player'
                     ? 'bg-hoopland-border border-hoopland-text text-hoopland-text'
                     : 'bg-hoopland-frame border-hoopland-border text-hoopland-text hover:border-hoopland-text'
                 }`}
                 style={{ boxShadow: '0 4px 0 0 #000' }}
               >
-                <Users className="w-4 h-4" />
-                PLAYERS
+                <Users className="w-5 h-5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span>PLAYERS</span>
               </button>
               <button
-                onClick={() => setCurrentView('modes')}
-                className={`w-full flex items-center gap-3 px-4 py-3 border-4 font-pixel text-xs transition-all ${
+                onClick={() => {
+                  setCurrentView('modes');
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-4 sm:py-3 border-4 font-pixel text-xs sm:text-xs transition-all min-h-[44px] ${
                   currentView === 'modes'
                     ? 'bg-hoopland-border border-hoopland-text text-hoopland-text'
                     : 'bg-hoopland-frame border-hoopland-border text-hoopland-text hover:border-hoopland-text'
                 }`}
                 style={{ boxShadow: '0 4px 0 0 #000' }}
               >
-                <Trophy className="w-4 h-4" />
-                GAME MODES
+                <Trophy className="w-5 h-5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span>GAME MODES</span>
               </button>
               <button
-                onClick={() => setCurrentView('drafts')}
-                className={`w-full flex items-center gap-3 px-4 py-3 border-4 font-pixel text-xs transition-all ${
+                onClick={() => {
+                  setCurrentView('drafts');
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-4 sm:py-3 border-4 font-pixel text-xs sm:text-xs transition-all min-h-[44px] ${
                   currentView === 'drafts'
                     ? 'bg-hoopland-border border-hoopland-text text-hoopland-text'
                     : 'bg-hoopland-frame border-hoopland-border text-hoopland-text hover:border-hoopland-text'
                 }`}
                 style={{ boxShadow: '0 4px 0 0 #000' }}
               >
-                <Target className="w-4 h-4" />
-                DRAFTS
+                <Target className="w-5 h-5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span>DRAFTS</span>
               </button>
               <button
-                onClick={() => setCurrentView('teams')}
-                className={`w-full flex items-center gap-3 px-4 py-3 border-4 font-pixel text-xs transition-all ${
+                onClick={() => {
+                  setCurrentView('teams');
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-4 sm:py-3 border-4 font-pixel text-xs sm:text-xs transition-all min-h-[44px] ${
                   currentView === 'teams'
                     ? 'bg-hoopland-border border-hoopland-text text-hoopland-text'
                     : 'bg-hoopland-frame border-hoopland-border text-hoopland-text hover:border-hoopland-text'
                 }`}
                 style={{ boxShadow: '0 4px 0 0 #000' }}
               >
-                <Users className="w-4 h-4" />
-                TEAMS
+                <Users className="w-5 h-5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span>TEAMS</span>
               </button>
             </nav>
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1">
+          <main className="flex-1 min-w-0 w-full">
             {currentView === 'overview' && (
               <div className="space-y-6">
                 <div className="card">
@@ -395,7 +439,7 @@ function App() {
                       </span>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                     <div className="bg-hoopland-border border-4 border-hoopland-text p-4">
                       <div className="text-xs font-pixel-alt text-hoopland-dark uppercase">Players</div>
                       <div className="text-xl font-pixel text-hoopland-text mt-2">
@@ -472,7 +516,7 @@ function App() {
                   <div className="text-xs font-pixel-alt text-hoopland-dark mb-3">
                     Showing {Array.isArray(filteredPlayers) ? filteredPlayers.length : 0} of {Array.isArray(allPlayers) ? allPlayers.length : 0} players
                   </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-h-96 overflow-y-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 max-h-96 overflow-y-auto">
                     {Array.isArray(filteredPlayers) && filteredPlayers.length > 0 ? (
                       filteredPlayers.map((player: Player) => {
                         if (!player || !player.id) return null;
@@ -647,7 +691,7 @@ function App() {
                   <div className="text-xs font-pixel-alt text-hoopland-dark mb-3">
                     Showing {filteredTeams.length} of {saveData.teams?.length || 0} teams
                   </div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-96 overflow-y-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-96 overflow-y-auto">
                     {filteredTeams.map((team: Team) => {
                       const logoURL = (team as any).logoURL;
                       return (

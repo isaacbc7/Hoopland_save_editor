@@ -143,7 +143,7 @@ function GameModeEditor({
             )}
           </button>
           {expandedSections.has('season') && (
-            <div className="pl-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="pl-0 sm:pl-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {groupedFields.season.map(([key, value]) => renderField(key, value))}
             </div>
           )}
@@ -165,7 +165,7 @@ function GameModeEditor({
             )}
           </button>
           {expandedSections.has('draft') && (
-            <div className="pl-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="pl-0 sm:pl-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {groupedFields.draft.map(([key, value]) => renderField(key, value))}
             </div>
           )}
@@ -187,7 +187,7 @@ function GameModeEditor({
             )}
           </button>
           {expandedSections.has('settings') && (
-            <div className="pl-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="pl-0 sm:pl-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {groupedFields.settings.map(([key, value]) => renderField(key, value))}
             </div>
           )}
